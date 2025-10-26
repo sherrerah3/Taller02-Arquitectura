@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pokeneas - {{ nombre }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+      max-width: 400px;
+      width: 100%;
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .data-card {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    .data-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 { 
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle { 
+      color: #718096; 
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .img-wrap {
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      background: #f8f9fa;
+      border-radius: 10px; 
+      padding: 1.5rem; 
+      margin-bottom: 1rem;
+      border: 1px solid #e9ecef;
+    }
+
+    img { 
+      max-width: 100%; 
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .quote-box {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border-left: 4px solid #667eea;
+      margin-bottom: 1rem;
+    }
+
+    .quote-text {
+      color: #2d3748;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #e9ecef;
+    }
+
+    .container-info { 
+      font-size: 0.9rem; 
+      color: #495057;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .container-id {
+      background: #667eea;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .links { 
+      display: flex;
+      justify-content: center;
+    }
+
+    .api-button {
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .api-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Card 1: Nombre e Imagen -->
+    <div class="card">
+      <div class="header">
+        <h1>{{ nombre }}</h1>
+        <p class="subtitle">Un Pokenea antioqueño</p>
+      </div>
+
+      <div class="img-wrap">
+        <img src="{{ imagen }}" alt="Imagen de {{ nombre }}">
+      </div>
+    </div>
+
+    <!-- Card 2: Datos adicionales -->
+    <div class="data-card">
+      <div class="data-grid">
+        <!-- Cuadro 1: Frase -->
+        <div class="quote-box">
+          <p class="quote-text">"{{ frase }}"</p>
+        </div>
+
+        <!-- Cuadro 2: Container ID y enlace -->
+        <div class="info-box">
+          <div class="container-info">
+            <strong>Container ID:</strong>
+            <span class="container-id">{{ container_id }}</span>
+          </div>
+
+          <div class="links">
+            <a href="/api/pokenea" class="api-button">Ver JSON aleatorio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
