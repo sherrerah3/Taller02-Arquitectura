@@ -6,7 +6,7 @@ POKENEAS = [
         "nombre": "Neachu",
         "altura": 0.9,
         "habilidad": "Doble maíz",
-        "imagen": "https://example.com/arepachu.png",
+        "imagen": "Neachu.png",
         "frase": "Un toquesito o que?"
     },
     {
@@ -14,7 +14,7 @@ POKENEAS = [
         "nombre": "Bulbasureño",
         "altura": 1.2,
         "habilidad": "Vitaminazo",
-        "imagen": "https://example.com/guayabion.png",
+        "imagen": "Bulbasureño.png",
         "frase": "Soy del verde soy feliz"
     },
     {
@@ -22,7 +22,7 @@ POKENEAS = [
         "nombre": "Charmanea",
         "altura": 1.6,
         "habilidad": "Desfile floral",
-        "imagen": "https://example.com/silletron.png",
+        "imagen": "Charmanea.png",
         "frase": "Con guayaba y verraquera se puede"
     },
     {
@@ -30,7 +30,7 @@ POKENEAS = [
         "nombre": "Chorizord",
         "altura": 1.1,
         "habilidad": "Subida eterna",
-        "imagen": "https://example.com/trotamonte.png",
+        "imagen": "Chorizord.png",
         "frase": "Pa arriba es que vamos pues."
     },
     {
@@ -38,7 +38,7 @@ POKENEAS = [
         "nombre": "Squirtle",
         "altura": 1.4,
         "habilidad": "Aroma vital",
-        "imagen": "https://example.com/cafesaurio.png",
+        "imagen": "Squirtle.png",
         "frase": "Un tintico y sale"
     },
     {
@@ -46,7 +46,7 @@ POKENEAS = [
         "nombre": "Rattota",
         "altura": 0.7,
         "habilidad": "Energía paisa",
-        "imagen": "https://example.com/bandejin.png",
+        "imagen": "Rattota.png",
         "frase": "Poropopo, poropopo el que no salte es un rolo mari***"
     },
     {
@@ -54,7 +54,7 @@ POKENEAS = [
         "nombre": "Metapai",
         "altura": 2.1,
         "habilidad": "Desplazamiento limpio",
-        "imagen": "https://example.com/metrovol.png",
+        "imagen": "Metapai.png",
         "frase": "Jueves de palmas"
     },
     {
@@ -62,23 +62,23 @@ POKENEAS = [
         "nombre": "Butterfresa",
         "altura": 1.0,
         "habilidad": "Verde urbano",
-        "imagen": "https://example.com/parquebot.png",
+        "imagen": "Butterfresa.png",
         "frase": "2 pa 2 o que?"
     },
     {
         "id": 9,
-        "nombre": "Parcean",
+        "nombre": "Slowbroki",
         "altura": 0.8,
         "habilidad": "Energía renovable",
-        "imagen": "https://example.com/solarpika.png",
+        "imagen": "Slowbroki.png",
         "frase": "El que se asusta se quema"
     },
     {
         "id": 10,
-        "nombre": "Slowbroki",
+        "nombre": "Dunsparcero",
         "altura": 1.3,
         "habilidad": "Sabor tradicional",
-        "imagen": "https://example.com/arepajiggly.png",
+        "imagen": "Dunsparcero.png",
         "frase": "Mas que mi hermano eres mi bro."
     }
 ]
