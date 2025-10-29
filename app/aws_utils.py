@@ -1,57 +1,10 @@
-import boto3
 import os
 from dotenv import load_dotenv
-import sys
-from flask import render_template_string
 
 env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
 load_dotenv(env_path)
 
-# cliente S3
-s3_client = boto3.client(
-    's3',
-    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-    aws_session_token=os.getenv('AWS_SESSION_TOKEN'),
-    region_name=os.getenv('AWS_REGION')
-)
-
 S3_BUCKET = os.getenv('S3_BUCKET')
-
-def mostrar_imagenes():
-    """
-    Retorna una página HTML con todas las imágenes del bucket
-    """
-    try:
-        objects = s3_client.list_objects_v2(Bucket=S3_BUCKET)
-        
-        image_urls = []
-        
-        for obj in objects.get('Contents', []):
-            key = obj['Key']
-            url = f'https://{S3_BUCKET}.s3.{os.getenv("AWS_REGION")}.amazonaws.com/{key}'
-            image_urls.append(url)
-            
-        print(f"\nContenido del bucket {S3_BUCKET}:")
-        for url in image_urls:
-            print(f"URL generada: {url}")
-            
-        html = """
-        <!DOCTYPE html>
-        <div style="padding: 20px;">
-            <h2>Imágenes en el bucket: {{ bucket_name }}</h2>
-            {% for url in image_urls %}
-                <div style="margin: 20px 0; padding: 10px; border: 1px solid #ccc;">
-                    <img src="{{ url }}" style="max-width:300px; margin-bottom: 10px;"><br>
-                    <code style="word-break: break-all;">{{ url }}</code>
-                </div>
-            {% endfor %}
-        </div>
-        """
-        return render_template_string(html, image_urls=image_urls, bucket_name=S3_BUCKET)
-    except Exception as e:
-        print(f"Error listing bucket contents: {str(e)}")
-        return f"Error: {str(e)}"
 
 def get_image_url(image_name):
     """

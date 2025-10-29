@@ -9,7 +9,7 @@ def get_random_pokenea_json():
     """
     Devuelve JSON con: id, nombre, altura, habilidad + container_id.
     Si se accede desde navegador (Accept: text/html), renderiza vista HTML.
-    Si se accede como API (Accept: application/json), devuelve JSON puro.
+    Si se accede como API (Accept: application/json), devuelve JSON.
     """
     p = random_pokenea()
     payload = {
