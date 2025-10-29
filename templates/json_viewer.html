@@ -144,7 +144,6 @@
       <div class="panel-title">JSON de Diseño</div>
       <div class="json-actions">
         <button class="secondary-btn" id="refresh-json">Recargar</button>
-        <button class="primary-btn" id="copy-json">Copiar JSON</button>
       </div>
     </div>
 
@@ -171,14 +170,6 @@
     }
 
     document.getElementById('refresh-json').addEventListener('click', loadJson);
-    
-    document.getElementById('copy-json').addEventListener('click', () => {
-      if (currentData) {
-        navigator.clipboard.writeText(JSON.stringify(currentData, null, 2))
-          .then(() => alert('JSON copiado al portapapeles'))
-          .catch(() => alert('Error al copiar'));
-      }
-    });
 
     // Carga inicial
     loadJson();
