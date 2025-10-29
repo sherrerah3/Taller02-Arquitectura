@@ -7,7 +7,7 @@ POKENEAS = [
         "altura": 0.9,
         "habilidad": "Doble maíz",
         "imagen": "Neachu.png",
-        "frase": "Un toquesito o que?"
+        "frase": "Un toquesito o qué mi papa?"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@ POKENEAS = [
         "altura": 1.2,
         "habilidad": "Vitaminazo",
         "imagen": "Bulbasureño.png",
-        "frase": "Soy del verde soy feliz"
+        "frase": "Soy del verde soy feliz, y por el verde me doy puño con el que sea"
     },
     {
         "id": 3,
