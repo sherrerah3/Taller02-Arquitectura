@@ -16,6 +16,7 @@
       background: white;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 2rem;
@@ -139,11 +140,9 @@
     }
 
     .container-id {
-      background: #667eea;
-      color: white;
+      color: rgb(0, 0, 0);
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
-      font-family: 'Courier New', monospace;
       font-size: 0.8rem;
       font-weight: 600;
     }
@@ -170,14 +169,87 @@
       text-decoration: none;
       color: white;
     }
+
+    /* Página: título global fuera de las cards */
+    .page-title {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-title h1 {
+      font-size: 2.25rem;
+      color: #1f2937;
+      letter-spacing: 0.5px;
+    }
+
+    /* Panel externo para mostrar JSON centrado */
+    .json-panel {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+      border: 1px solid #e6eef8;
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 10px 40px rgba(16,24,40,0.05);
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .json-panel .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .json-panel .panel-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1rem;
+    }
+
+    pre.json-content {
+      background: #0b1220;
+      color: #dbeafe;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow: auto;
+      max-height: 420px;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .json-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .secondary-btn {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
+  <div class="page-title">
+    <h1>Pokenea Aleatorio</h1>
+  </div>
   <div class="container">
     <!-- Card 1: Nombre e Imagen -->
     <div class="card">
       <div class="header">
-        <h1>{{ nombre }}</h1>
+        <h2>{{ nombre }}</h2>
         <p class="subtitle">Un Pokenea antioqueño</p>
       </div>
 

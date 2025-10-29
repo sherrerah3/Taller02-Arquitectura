@@ -167,9 +167,11 @@ config.py
 
 # Docker
 .dockerignore
-Dockerfile
 docker-compose*.yml
 
 # Temporary files
 *.tmp
 *.temp
+
+entornotaller
+aws.env

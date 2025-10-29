@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>JSON Aleatorio - Pokenea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+
+    .page-title {
+      text-align: center;
+      color: #1f2937;
+      text-shadow: none;
+    }
+
+    .page-title h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: #6b7280;
+    }
+
+    /* Panel externo para mostrar JSON centrado */
+    .json-panel {
+      width: 100%;
+      max-width: 900px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .panel-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1.2rem;
+    }
+
+    .json-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .secondary-btn {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .primary-btn {
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .primary-btn:hover {
+      background: #5568d3;
+      transform: translateY(-1px);
+    }
+
+    pre.json-content {
+      background: #0b1220;
+      color: #dbeafe;
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow: auto;
+      max-height: 500px;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .back-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border: 2px solid #667eea;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover {
+      background: #667eea;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-title">
+    <h1>JSON Aleatorio</h1>
+    <p class="page-subtitle">Vista del JSON del Pokenea</p>
+  </div>
+
+  <div class="json-panel" aria-live="polite">
+    <div class="panel-header">
+      <div class="panel-title">JSON de Diseño</div>
+      <div class="json-actions">
+        <button class="secondary-btn" id="refresh-json">Recargar</button>
+        <button class="primary-btn" id="copy-json">Copiar JSON</button>
+      </div>
+    </div>
+
+    <pre id="json-content" class="json-content">Cargando JSON…</pre>
+  </div>
+
+  <a href="/" class="back-link">← Volver al inicio</a>
+
+  <script>
+    let currentData = null;
+
+    async function loadJson() {
+      const el = document.getElementById('json-content');
+      try {
+        const res = await fetch('/api/pokenea', {
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+        currentData = await res.json();
+        el.textContent = JSON.stringify(currentData, null, 2);
+      } catch (err) {
+        el.textContent = 'Error al cargar JSON: ' + err.message;
+      }
+    }
+
+    document.getElementById('refresh-json').addEventListener('click', loadJson);
+    
+    document.getElementById('copy-json').addEventListener('click', () => {
+      if (currentData) {
+        navigator.clipboard.writeText(JSON.stringify(currentData, null, 2))
+          .then(() => alert('JSON copiado al portapapeles'))
+          .catch(() => alert('Error al copiar'));
+      }
+    });
+
+    // Carga inicial
+    loadJson();
+  </script>
+</body>
+</html>
